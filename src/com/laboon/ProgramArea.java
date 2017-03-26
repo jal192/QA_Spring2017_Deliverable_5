@@ -1,5 +1,11 @@
 package com.laboon;
 
+/*
+
+	Refactored Method: getOpCode() - Starts on line 
+	
+*/
+
 /**
  * The actual input program, converted from a big String to an 
  * m * n array of chars.
@@ -87,6 +93,10 @@ public class ProgramArea {
 	fillUpSpaces();
     }
 	
+	// ############################################
+	// ####### Refactored Version of Method #######
+	// ############################################
+	
     /**
      * Get the opcode from a particular place in the program area.
      * If opcode is not in program space, return null char (ASCII 0).
@@ -94,27 +104,7 @@ public class ProgramArea {
      * @param y y-coordinate
      * @return char The opcode (char) at that location
      */
-    
-    public char getOpCode(int x, int y) {
-
-	if (x >= _xSize || x < 0 || y >= _ySize || y < 0) {
-	    return (char) 0;
-	}
 	
-	for (int j = -80000; j <= x; j++) {
-	    for (int k = -80000; k <= y; k++) {
-		if (j == x && k == y) {
-		    return _area[j][k];
-		}
-	    }
-	}
-	
-	// return _area[x][y];
-	return (char) 0;
-    }
-	
-	
-	/*
 	//Modified version
 	public char getOpCode(int x, int y) {
 
@@ -125,7 +115,7 @@ public class ProgramArea {
 			return _area[x][y];
 		}
     }
-	*/
+	
 
     /**
      * Set the opcode at a particular place in the program area.

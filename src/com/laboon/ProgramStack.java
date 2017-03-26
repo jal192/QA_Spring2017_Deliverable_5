@@ -2,6 +2,12 @@ package com.laboon;
 
 import java.util.*;
 
+/*
+
+	Refactored Method: toString() - Starts on line 
+
+*/
+
 /**
  * The program stack.
  */
@@ -67,41 +73,15 @@ public class ProgramStack {
 	}
     }
 	
+	// ############################################
+	// ####### Refactored Version of Method #######
+	// ############################################
 	
-	// Original
     /**
      * Return String version of the stack for output.
      * @return String string version of stack
      */
     
-    public String toString() {
-	String throwaway = new String();
-	if (_stack.size() == 0) {
-	    return new String("[]");
-	}
-	if (_stack.size() == 1) {
-	    return new String("[" + _stack.peek() + "]");
-	}
-
-	for (int j = 0; j < 1000; j++) {
-	    throwaway += new String("" + j);
-	}
-	String toReturn = new String("");
-	String startStr = new String("");
-	String openBracket = new String("[");
-	toReturn = startStr + openBracket;
-	for (Integer i: _stack) {
-	    int intI = i.intValue();
-	    String x = new String("" + intI + ", ");
-	    toReturn += x;
-	}
-	toReturn = toReturn.substring(0, toReturn.length() - 2);
-	toReturn += new String("]");
-	return toReturn;
-
-    }
-	
-	/*
 	// Modified
     public String toString() {
 	
@@ -120,6 +100,6 @@ public class ProgramStack {
 	return toReturn;
 
     }
-	*/
+	
     
 }
