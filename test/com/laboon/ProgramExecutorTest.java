@@ -37,11 +37,12 @@ public class ProgramExecutorTest {
 	// ######### PINNING TESTS BY JASON LY #########
 	// #############################################
 	
+	// Ensure that the modulo of two negative numbers on the stack is calculated correctly.
 	@Test
     public void testModuloBothNegValues() {
 	ProgramStack ps = new ProgramStack();
-	ps.push(-17); // B
-    ps.push(-10); // A
+	ps.push(-17); 
+    ps.push(-10); 
 	ProgramArea pa = new ProgramArea("123++@");
 	MainPanel mp = new MainPanel();
 	_e = new ProgramExecutor(mp, ps, pa);
@@ -49,6 +50,8 @@ public class ProgramExecutorTest {
 	assertEquals(-7, _e._ps.peek());
     }
 	
+	// Ensure that the modulo of one positive (b) and one negative number (a) on the stack is calculated correctly.
+	// Ensure that a positive number mod by a negative number returns the correct result.
 	@Test
     public void testModuloNegA() {
 	ProgramStack ps = new ProgramStack();
@@ -61,6 +64,8 @@ public class ProgramExecutorTest {
 	assertEquals(7, _e._ps.peek());
     }
 	
+	// Ensure that the modulo of one positive (a) and one negative number (b) on the stack is calculated correctly.
+	// Ensure that a negative number mod by a positive number returns the correct result.
 	@Test
     public void testModuloNegB() {
 	ProgramStack ps = new ProgramStack();
@@ -73,7 +78,7 @@ public class ProgramExecutorTest {
 	assertEquals(-7, _e._ps.peek());
     }
 	
-	
+	// Ensure that 0 mod an integer will always be 0.
 	@Test
     public void testModuloBZero() {
 	ProgramStack ps = new ProgramStack();
@@ -86,7 +91,11 @@ public class ProgramExecutorTest {
 	assertEquals(0, _e._ps.peek());
     }
 	
+	// Ensure that an integer mod 0 will always return the integer that is being modded.
 	
+	// This occurs because of my modification to the modulo method. If the top item in the stack
+	// is 0 then it's left off of the stack and nothing gets pushed back onto the stack. This 
+	// prevents mod 0 from happening repeatedly.
 	@Test
     public void testModuloAZero() {
 	ProgramStack ps = new ProgramStack();
@@ -99,7 +108,7 @@ public class ProgramExecutorTest {
 	assertEquals(17, _e._ps.peek());
     }
 	
-	
+	// Ensure that the modulo of an empty stack will always be 0.
 	@Test
     public void testModuloEmptyStack() {
 	ProgramStack ps = new ProgramStack();
@@ -110,7 +119,7 @@ public class ProgramExecutorTest {
 	assertEquals(0, _e._ps.peek());
     }
 	
-	
+	// Ensure that the modulo of a stack with one element will always be 0.
 	@Test
     public void testModuloOneItemInStack() {
 	ProgramStack ps = new ProgramStack();

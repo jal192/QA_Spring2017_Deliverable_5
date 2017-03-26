@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
 
-	Refactored Method: modulo() - Starts on line 
+	Refactored Method: modulo() - Starts on line 385
 	
 */
 
@@ -377,7 +377,10 @@ public class ProgramExecutor {
     /**
      * %   Modulo: Pop two values a and b, then push the remainder of the integer division of b/a.
      */
-	
+	/*
+		If the first item popped off the stack is 0 then keep it off the stack and do nothing else.
+		Else for the next item off the stack and perform the modulo function.
+	*/
 	//Modified version refractor
 	public void modulo() {
 

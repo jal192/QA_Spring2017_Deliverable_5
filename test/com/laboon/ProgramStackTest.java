@@ -19,6 +19,10 @@ public class ProgramStackTest {
 	// ######### PINNING TESTS BY JASON LY #########
 	// #############################################
 	
+	//	Ensure that negative values pushed to the stacked is correctly represented as a string.
+	
+	// A ProgramStack with one negative element should be represented by that one
+    // element surrounded by brackets, e.g. "[-713]".
 	@Test
     public void testToStringPushNegInt() {
 	ProgramStack stack = new ProgramStack();
@@ -27,6 +31,10 @@ public class ProgramStackTest {
 
     }
 	
+	//	Ensure that negative values pushed to the stacked is correctly represented as a string.
+	
+	// A ProgramStack with multiple negative elements should consist of the elements
+    // in that Stack in order, separated by commas and spaces.
 	@Test
     public void testToStringMultipleNeg() {
 	ProgramStack stack = new ProgramStack();
@@ -39,6 +47,7 @@ public class ProgramStackTest {
 
     }
 	
+	// Ensure that the string representation of the stack matches the changes to the stack.
 	@Test
     public void testToStringAfterStackChanges() {
 	ProgramStack stack = new ProgramStack();
@@ -50,7 +59,10 @@ public class ProgramStackTest {
 
     }
 	
+	// Test implicit maximum boundary value
 	
+	// Ensure that if the maximum value for an integer is added to the stack that it's represented
+	// appropriately as a string.
 	@Test
     public void testToStringMaxInt() {
 	ProgramStack stack = new ProgramStack();
@@ -59,7 +71,10 @@ public class ProgramStackTest {
 
     }
 	
+	// Test implicit minimum boundary value
 	
+	// Ensure that if the minimum value for an integer is added to the stack that it's represented
+	// appropriately as a string.
 	@Test
     public void testToStringMinInt() {
 	ProgramStack stack = new ProgramStack();

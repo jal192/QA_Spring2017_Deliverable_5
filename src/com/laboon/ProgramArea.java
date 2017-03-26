@@ -2,7 +2,7 @@ package com.laboon;
 
 /*
 
-	Refactored Method: getOpCode() - Starts on line 
+	Refactored Method: getOpCode() - Starts on line 109
 	
 */
 

@@ -16,21 +16,28 @@ public class ProgramAreaTest {
 	// #############################################
 	
 	
-	// Test boundary value 100
+	// ###########################################
+	// ######### Test boundary value 100 #########
+	// ###########################################
+	
+	// Ensure that reading from out-area (above the Y bounds, within the X bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaYAt100() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(7, 100), (char) 0);
     }
 	
-	
+	// Ensure that reading from out-area (above the X bounds, within the Y bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAt100() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(100, 7), (char) 0);
     }
 	
-	
+	// Ensure that reading from out-area (above the Y and X bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAndYAt100() {
 	ProgramArea pa = new ProgramArea("");
@@ -38,21 +45,30 @@ public class ProgramAreaTest {
     }
 	
 	
-	// Test boundary value -1
+	
+	// ##########################################
+	// ######### Test boundary value -1 #########
+	// ##########################################
+	
+	
+	// Ensure that reading from out-area (below the Y bounds, within the X bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaYAtNeg1() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(7, -1), (char) 0);
     }
 	
-	
+	// Ensure that reading from out-area (below the X bounds, within the Y bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAtNeg1() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(-1, 7), (char) 0);
     }
 	
-	
+	// Ensure that reading from out-area (below the Y and X bounds) will return char 0.
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAndYAtNeg1() {
 	ProgramArea pa = new ProgramArea("");
@@ -60,21 +76,30 @@ public class ProgramAreaTest {
     }
 	
 	
-	// Test boundary value 99
+	
+	// ##########################################
+	// ######### Test boundary value 99 #########
+	// ##########################################
+	
+	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaYAt99() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(7, 99), ' ');
     }
 	
-	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAt99() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(99, 7), ' ');
     }
 	
-	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAndYAt99() {
 	ProgramArea pa = new ProgramArea("");
@@ -82,26 +107,36 @@ public class ProgramAreaTest {
     }
 	
 	
-	// Test boundary value 0
+	
+	// #########################################
+	// ######### Test boundary value 0 #########
+	// #########################################
+	
+	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaYAt0() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(7, 0), ' ');
     }
 	
-	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAt0() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(0, 7), ' ');
     }
 	
-	
+	// Ensure that reading from in-area will return space (' ').
+	// Tests for off by one error.
 	@Test
     public void testReadOutAreaXAndYAt0() {
 	ProgramArea pa = new ProgramArea("");
 	assertEquals(pa.getOpCode(0, 0), ' ');
     }
+	
 	
 	
 	// ##################################
