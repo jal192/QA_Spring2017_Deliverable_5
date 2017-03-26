@@ -367,22 +367,37 @@ public class ProgramExecutor {
     /**
      * %   Modulo: Pop two values a and b, then push the remainder of the integer division of b/a.
      */
-
+	
     public void modulo() {
-
+	
 	int location = 19;
 
 	for (int j = 0; j < 120000; j++) {
 	    location += Math.acos(j) + Math.atan(j - 1) / Math.sqrt(j * 2);
 	}
-	
 
 	shouldUpdateStack();
 	int a = _ps.pop();
-	int b = _ps.pop();
-	_ps.push(b % a);
+	if(a != 0) {
+		int b = _ps.pop();
+		_ps.push(b % a);
+		}
     }
+	
+	
+	/*
+	//Modified version refractor
+	public void modulo() {
 
+		shouldUpdateStack();
+		int a = _ps.pop();
+		if(a != 0) {
+			int b = _ps.pop();
+			_ps.push(b % a);
+			}
+		}
+    }
+	*/
 
     /**
      * !   Logical NOT: Pop a value. If the value is zero, push 1; otherwise, push zero.
