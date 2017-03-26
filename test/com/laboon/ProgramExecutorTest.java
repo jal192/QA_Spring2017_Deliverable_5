@@ -12,7 +12,7 @@ import org.junit.*;
  */
 
 public class ProgramExecutorTest {
-
+	
     // Shared ProgramExecutor
     // A new one is created for each test - this is inefficient but
     // ensures a clean slate for each test
@@ -32,6 +32,100 @@ public class ProgramExecutorTest {
     	MainPanel mp = new MainPanel();
     	_e = new ProgramExecutor(mp, ps, pa);
     }
+	
+	// #############################################
+	// ######### PINNING TESTS BY JASON LY #########
+	// #############################################
+	
+	@Test
+    public void testModuloBothNegValues() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(-17); // B
+    ps.push(-10); // A
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(-7, _e._ps.peek());
+    }
+	
+	@Test
+    public void testModuloNegA() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(17);
+    ps.push(-10);
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(7, _e._ps.peek());
+    }
+	
+	@Test
+    public void testModuloNegB() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(-17);
+    ps.push(10);
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(-7, _e._ps.peek());
+    }
+	
+	
+	@Test
+    public void testModuloBZero() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(0);
+    ps.push(10);
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(0, _e._ps.peek());
+    }
+	
+	
+	@Test
+    public void testModuloAZero() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(17);
+    ps.push(0);
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(17, _e._ps.peek());
+    }
+	
+	
+	@Test
+    public void testModuloEmptyStack() {
+	ProgramStack ps = new ProgramStack();
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(0, _e._ps.peek());
+    }
+	
+	
+	@Test
+    public void testModuloOneItemInStack() {
+	ProgramStack ps = new ProgramStack();
+	ps.push(713);
+	ProgramArea pa = new ProgramArea("123++@");
+	MainPanel mp = new MainPanel();
+	_e = new ProgramExecutor(mp, ps, pa);
+	_e.modulo();
+	assertEquals(0, _e._ps.peek());
+    }
+	
+	// ##################################
+	// ######### EXISTING TESTS #########
+	// ##################################
+	
 
     // Test the '+' (add) command.   3 + 4 should == 7.
     @Test

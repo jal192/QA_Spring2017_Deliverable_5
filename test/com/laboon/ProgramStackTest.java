@@ -13,7 +13,66 @@ import org.junit.*;
 
 
 public class ProgramStackTest {
+	
+	
+	// #############################################
+	// ######### PINNING TESTS BY JASON LY #########
+	// #############################################
+	
+	@Test
+    public void testToStringPushNegInt() {
+	ProgramStack stack = new ProgramStack();
+	stack.push(-713);
+	assertTrue(stack.toString().equals("[-713]"));
 
+    }
+	
+	@Test
+    public void testToStringMultipleNeg() {
+	ProgramStack stack = new ProgramStack();
+	stack.push(-1);
+	stack.push(-713);
+	stack.push(-7);
+	stack.push(-42);
+	stack.push(-1000000);
+	assertTrue(stack.toString().equals("[-1, -713, -7, -42, -1000000]"));
+
+    }
+	
+	@Test
+    public void testToStringAfterStackChanges() {
+	ProgramStack stack = new ProgramStack();
+	stack.push(0);
+	stack.push(100);
+	assertTrue(stack.toString().equals("[0, 100]"));
+	stack.pop();
+	assertTrue(stack.toString().equals("[0]"));
+
+    }
+	
+	
+	@Test
+    public void testToStringMaxInt() {
+	ProgramStack stack = new ProgramStack();
+	stack.push(Integer.MAX_VALUE);
+	assertTrue(stack.toString().equals("[2147483647]"));
+
+    }
+	
+	
+	@Test
+    public void testToStringMinInt() {
+	ProgramStack stack = new ProgramStack();
+	stack.push(Integer.MIN_VALUE);
+	assertTrue(stack.toString().equals("[-2147483648]"));
+
+    }
+	
+	// ##################################
+	// ######### EXISTING TESTS #########
+	// ##################################
+
+	
     // Test that pushing a positive integer (20) will result in the next
     // pop being that value.
     @Test

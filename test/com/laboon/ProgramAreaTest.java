@@ -9,7 +9,106 @@ import org.junit.*;
  */
 
 public class ProgramAreaTest {
-
+	
+	
+	// #############################################
+	// ######### PINNING TESTS BY JASON LY #########
+	// #############################################
+	
+	
+	// Test boundary value 100
+	@Test
+    public void testReadOutAreaYAt100() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(7, 100), (char) 0);
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAt100() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(100, 7), (char) 0);
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAndYAt100() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(100, 100), (char) 0);
+    }
+	
+	
+	// Test boundary value -1
+	@Test
+    public void testReadOutAreaYAtNeg1() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(7, -1), (char) 0);
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAtNeg1() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(-1, 7), (char) 0);
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAndYAtNeg1() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(-1, -1), (char) 0);
+    }
+	
+	
+	// Test boundary value 99
+	@Test
+    public void testReadOutAreaYAt99() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(7, 99), ' ');
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAt99() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(99, 7), ' ');
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAndYAt99() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(99, 99), ' ');
+    }
+	
+	
+	// Test boundary value 0
+	@Test
+    public void testReadOutAreaYAt0() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(7, 0), ' ');
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAt0() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(0, 7), ' ');
+    }
+	
+	
+	@Test
+    public void testReadOutAreaXAndYAt0() {
+	ProgramArea pa = new ProgramArea("");
+	assertEquals(pa.getOpCode(0, 0), ' ');
+    }
+	
+	
+	// ##################################
+	// ######### EXISTING TESTS #########
+	// ##################################
+	
+	
     // Test default X size is correct
     @Test
     public void testDefaultXSize() {
