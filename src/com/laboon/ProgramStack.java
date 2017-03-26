@@ -66,7 +66,9 @@ public class ProgramStack {
 	    return 0;
 	}
     }
-
+	
+	
+	// Original
     /**
      * Return String version of the stack for output.
      * @return String string version of stack
@@ -98,5 +100,26 @@ public class ProgramStack {
 	return toReturn;
 
     }
+	
+	/*
+	// Modified
+    public String toString() {
+	
+	if (_stack.size() == 0) {
+	    return new String("[]");
+	}
+	if (_stack.size() == 1) {
+	    return new String("[" + _stack.peek() + "]");
+	}
+	
+	String toReturn = new String("[");
+	for (Integer i: _stack) {
+	    toReturn += "" + i.intValue() + ", ";
+	}
+	toReturn = toReturn.substring(0, toReturn.length() - 2) + "]";
+	return toReturn;
+
+    }
+	*/
     
 }
