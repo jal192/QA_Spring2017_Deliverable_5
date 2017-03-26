@@ -86,7 +86,7 @@ public class ProgramArea {
     public ProgramArea() {
 	fillUpSpaces();
     }
-
+	
     /**
      * Get the opcode from a particular place in the program area.
      * If opcode is not in program space, return null char (ASCII 0).
@@ -112,6 +112,20 @@ public class ProgramArea {
 	// return _area[x][y];
 	return (char) 0;
     }
+	
+	
+	/*
+	//Modified version
+	public char getOpCode(int x, int y) {
+
+		if (x >= _xSize || x < 0 || y >= _ySize || y < 0) {
+			return (char) 0;
+		}
+		else {
+			return _area[x][y];
+		}
+    }
+	*/
 
     /**
      * Set the opcode at a particular place in the program area.
