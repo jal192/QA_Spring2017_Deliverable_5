@@ -107,11 +107,9 @@ public class ProgramArea {
 	
 	//Modified version
 	public char getOpCode(int x, int y) {
-
 		if (x >= _xSize || x < 0 || y >= _ySize || y < 0) {
 			return (char) 0;
-		}
-		else {
+		} else {
 			return _area[x][y];
 		}
     }
@@ -122,31 +120,31 @@ public class ProgramArea {
      * If out of bounds, do nothing.
      * @param x x-coordinate
      * @param y y-coordinate
-     * @return char The opcode (char) to set at that location
+     * @param v The opcode (char) to set at that location
      */
     
     public void setOpCode(int x, int y, char v) {
-	if (x >= _xSize || x < 0 || y >= _ySize || y < 0) {
-	    // Ignore
-	} else {
-	    _area[x][y] = v;
-	}
+		if (x >= _xSize || x < 0 || y >= _ySize || y < 0) {
+			// Ignore
+		} else {
+			_area[x][y] = v;
+		}
     }
    
     /**
-     * Convert the ProgramArea back into a String
+	 * Convert the ProgramArea back into a String
      * @return String string representation of the ProgramArea
      */
 
     public String toString() {
-	StringBuilder sb = new StringBuilder("");
-	for (int j = 0; j < _xSize; j++) {
-	    for (int k = 0; k < _ySize; k++) {
-		sb.append(_area[j][k]);
-	    }
-	    sb.append("\n");
-	}
-	return sb.toString();
+		StringBuilder sb = new StringBuilder("");
+		for (int j = 0; j < _xSize; j++) {
+			for (int k = 0; k < _ySize; k++) {
+				sb.append(_area[j][k]);
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
     }
     
 }
