@@ -1,8 +1,8 @@
 package com.laboon;
 
 import java.awt.*;
-import javax.swing.*;
 import java.util.*;
+import javax.swing.*;
 
 
 public class MainWindow extends JFrame {
@@ -16,8 +16,10 @@ public class MainWindow extends JFrame {
 
     private ButtonPanel _buttonPanel;
     
+	/**
+	 * Add panel components to the window
+	 */
     public MainWindow() {
-
 	_frame.setSize(WIDTH, HEIGHT);
 	// Close program when window is closed
 	_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
