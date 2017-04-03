@@ -38,7 +38,7 @@ public class ProgramStack {
      */
     
     public void push(int val) {
-	_stack.push(new Integer(val));
+	_stack.push(Integer.valueOf(val));
     }
 
     /**
@@ -86,18 +86,18 @@ public class ProgramStack {
     public String toString() {
 	
 	if (_stack.size() == 0) {
-	    return new String("[]");
+	    return "[]";
 	}
 	if (_stack.size() == 1) {
-	    return new String("[" + _stack.peek() + "]");
+	    return "[" + _stack.peek() + "]";
 	}
 	
-	String toReturn = new String("[");
+	StringBuilder toReturn = new StringBuilder("[");
 	for (Integer i: _stack) {
-	    toReturn += "" + i.intValue() + ", ";
+	    toReturn.append("" + i.intValue() + ", ");
 	}
-	toReturn = toReturn.substring(0, toReturn.length() - 2) + "]";
-	return toReturn;
+	toReturn = toReturn.replace(toReturn.length() - 2, toReturn.length(), "]");
+	return toReturn.toString();
 
     }
 	
